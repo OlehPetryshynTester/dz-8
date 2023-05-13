@@ -1,12 +1,21 @@
-public abstract class Student {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Student {
     private int id;
+    private static int idCount;
     private String firstName;
     private String lastName;
+    private List<String> doneTasks;
 
-    public Student(int id, String firstName, String lastName) {
-        this.id = id;
+    public Student( String firstName, String lastName) {
+        this.id = idCount;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.doneTasks = new LinkedList<>();
+
+
     }
 
     public void setId(int id) {
@@ -33,5 +42,18 @@ public abstract class Student {
         return lastName;
     }
 
-    public abstract void markTaskDone(String task);
+    public void markTaskDone(String task) {
+        if (!doneTasks.contains(task)) {
+            doneTasks.add(task);
+        }
+    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", doneTasks=" + doneTasks +
+                '}';
+    }
 }

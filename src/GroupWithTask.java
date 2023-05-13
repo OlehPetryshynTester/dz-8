@@ -1,18 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupWithTask extends Student implements iStudentGrouptable, iTaskListable {
+public class GroupWithTask extends Student  {
     private List<Student> students = new ArrayList<>();
     private List<String> tasks = new ArrayList<>();
     private Student groupLeader;
 
     public GroupWithTask(int id, String firstName, String lastName) {
-        super(id, firstName, lastName);
+        super(firstName, lastName);
     }
 
     public void markTaskDone(Student student, String task) {
         if (students.contains(student) && tasks.contains(task)) {
             student.markTaskDone(task);
+        }else {
+            System.out.printf("Either student %s or task %s is not exist", student.getLastName(), task);
         }
     }
 
@@ -49,10 +51,6 @@ public class GroupWithTask extends Student implements iStudentGrouptable, iTaskL
         tasks.add(task);
     }
 
-    @Override
-    public void markTaskAsDone(Student student, String task) {
-
-    }
 
     public void removeTask(String task) {
         tasks.remove(task);
@@ -63,8 +61,4 @@ public class GroupWithTask extends Student implements iStudentGrouptable, iTaskL
     }
 
 
-    @Override
-    public void markTaskDone(String task) {
-
-    }
 }

@@ -2,10 +2,10 @@
 public class Main {
     public static void main(String[] args) {
         // create some students
-        Student student1 = new GroupWithTask(1, "John", "Smith");
-        Student student2 = new GroupWithTask(2, "Jane", "Doe");
-        Student student3 = new GroupWithTask(3, "Bob", "Marly");
-        Student student4 = new GroupWithTask(3, "Don", "Digidon");
+        Student student1 = new Student("John", "Smith");
+        Student student2 = new Student("Jane", "Doe");
+        Student student3 = new Student("Bob", "Marly");
+        Student student4 = new Student("Don", "Digidon");
 
         // create a group with tasks
         GroupWithTask group = new GroupWithTask(1, "Engineering", "101");
